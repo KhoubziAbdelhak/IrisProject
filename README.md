@@ -36,7 +36,8 @@ python app.py
 ```
 
 2. Open a web browser and navigate to http://localhost:5000.
+3. Login as admin (username: admin, password: admin).
 
-3. Upload an image or set of images compressed (.zip) to the system.
+4. Upload an image or set of images compressed (.zip) to the system.
 
-4. Test the system by uploading a new image and comparing it to the database.
+5. Test the system by uploading a new image and comparing it to the database.
