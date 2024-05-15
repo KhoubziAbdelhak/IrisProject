@@ -15,7 +15,7 @@ charset-normalizer==3.3.2
 click==8.1.7
 cloudpickle==3.0.0
 comm==0.2.2
-contourpy==1.2.1
+contourpy== 1.1.1
 cycler==0.12.1
 debugpy==1.8.1
 decorator==5.1.1
@@ -33,7 +33,7 @@ httpcore==1.0.5
 httpx==0.27.0
 idna==3.7
 ipykernel==6.29.4
-ipython==8.24.0
+ipython==8.12.3
 ipywidgets==8.1.2
 isoduration==20.11.0
 itsdangerous==2.1.2
@@ -50,14 +50,14 @@ jupyterlab_pygments==0.3.0
 jupyterlab_widgets==3.0.10
 kiwisolver==1.4.5
 MarkupSafe==2.1.5
-matplotlib==3.8.4
-matplotlib-inline==0.1.7
+matplotlib
+matplotlib-inline
 mistune==3.0.2
 nbclient==0.10.0
 nbconvert==7.16.4
 nbformat==5.10.4
 nest-asyncio==1.6.0
-numpy==1.26.4
+numpy
 opencv-python-headless==4.9.0.80
 overrides==7.7.0
 packaging==24.0
@@ -85,8 +85,7 @@ requests==2.31.0
 rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
 rpds-py==0.18.1
-scikit-learn==1.4.2
-scipy==1.13.0
+scikit-learn
 Send2Trash==1.8.3
 Sift==5.5.1
 six==1.16.0
