@@ -8,4 +8,6 @@ __pycache__/*
 
 static/data/*
 
+static/matched_keypoints.jpg
+
 uploads/*
