@@ -1,10 +1,9 @@
-import json
+import copyreg
 import os
 import zipfile
 
 import cv2
 import numpy as np
-import copyreg
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
@@ -78,31 +77,6 @@ def serialize_keypoints(keypoints):
 def deserialize_keypoints(pickled_keypoints):
     return pickle.loads(pickled_keypoints)
 
-
-# def serialize_keypoints(keypoints):
-#     return json.dumps([{
-#         'pt': kp.pt,
-#         'size': kp.size,
-#         'angle': kp.angle,
-#         'response': kp.response,
-#         'octave': kp.octave,
-#         'class_id': kp.class_id
-#     } for kp in keypoints])
-#
-#
-# def deserialize_keypoints(json_str):
-#     keypoints_data = json.loads(json_str)
-#     keypoints = []
-#     for kp_data in keypoints_data:
-#         kp = cv2.KeyPoint(
-#             x=kp_data['pt'][0], y=kp_data['pt'][1],
-#             _size=kp_data['size'], _angle=kp_data['angle'],
-#             _response=kp_data['response'], _octave=kp_data['octave'],
-#             _class_id=kp_data['class_id']
-#         )
-#         keypoints.append(kp)
-#     return keypoints
-#
 
 def unzip(file_path, extract_to):
     with zipfile.ZipFile(file_path, 'r') as zip_ref:
