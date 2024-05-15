@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Project</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../static/logo.png" type="image/icon type">
+    <style>
+        body {
+            background-image: url('../static/background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .card {
+            border-radius: 15px;
+            transition: transform 0.5s;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <img src="static/logo.png" alt="Iris Recognition" class="logo mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mb-3">
+            <div class="card p-4 m-2">
+                <h2 class="card-title text-center h2 mb-4">Processing</h2>
+{#                <p>you can either enter a set of images compressed (.zip) or enter single image</p>#}
+                <form action="/dashboard" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input class="form-control" type="file" name="file" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+                {% if train_message %}
+                    <div class="alert alert-primary mt-4">{{ train_message }}</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-4 m-2">
+                <h2 class="card-title text-center h2 mb-4">Verifying</h2>
+                <form action="/verify_image" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input class="form-control" type="file" name="image" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+                {% if match_message %}
+                    <div class="alert alert-primary mt-4">{{ match_message }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Selector</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="../static/logo.png" type="image/icon type">
+    <style>
+
+        html {
+            backdrop-filter: blur(10px);
+        }
+
+        body {
+            background-image: url('../static/background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .card {
+            border-radius: 15px;
+            transition: transform 0.5s;
+        }
+
+        .hidden {
+            display: none; /* Changed from transform for layout purposes */
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 200px; /* Adjust the size as needed */
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <img src="static/logo.png" alt="Iris Recognition" class="logo mb-5">
+    <div class="col justify-content-center">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="col-md-6 mb-3 flex-fill ">
+                <div class="card p-4">
+                    <h2 class="card-title text-center h2 mb-4">Welcome {{ username }}</h2>
+                    {% if matched_img_path %}
+                        <img src="{{ url_for('static', filename=matched_img_path) }}" class="image" alt=""/>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+.idea/*
+
+venv/*
+
+instance/iris.sqlite3
+
+__pycache__/*
+
+static/data/*
+
+uploads/*
