@@ -28,6 +28,9 @@ os.makedirs(app.config['DATABASE_FOLDER'], exist_ok=True)
 
 db_filename = os.path.join(app.config['DATABASE_FOLDER'], 'iris.sqlite3')
 
+if not os.path.exists(app.config['TRAINING_FOLDER']):
+    os.makedirs(app.config['TRAINING_FOLDER'])
+
 if not os.path.exists(db_filename):
     open(db_filename, 'w').close()
 
@@ -81,6 +84,14 @@ def deserialize_keypoints(pickled_keypoints):
 def unzip(file_path, extract_to):
     with zipfile.ZipFile(file_path, 'r') as zip_ref:
         zip_ref.extractall(extract_to)
+
+
+def extract_username_form_filename(filename):
+    # Remove the file extension
+    filename = filename.split('.')[0]
+    # Remove everything after "L" or "R"
+    filename = filename.split('L')[0].split('R')[0]
+    return filename
 
 
 def image_pretreatment(image_path, new_size=(256, 256)):
@@ -289,6 +300,8 @@ def home():
             matched_img_path = os.path.join(app.config['PREVIEW_FOLDER'], 'matched_keypoints.jpg')
             cv2.imwrite(matched_img_path, match_points_img)
             matched_img_path = matched_img_path.replace('static/', '')
+
+            matched_id = extract_username_form_filename(matched_id)
 
             return render_template('home.html', username=matched_id,
                                    matched_img_path=matched_img_path)
